@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        ul li {
+            display: inline;
+        }
+
+        .estilo_btn_receita {
+            padding: 10px;
+        }
+
+        .estilo_btn_receita:hover {
+            padding: 10px !important;
+            background-color: #F4EFF9 !important;
+            cursor: pointer;
+        }
+
+        .estilo_btn_despesa:hover {
+            padding: 10px !important;
+            background-color: #F4EFF9 !important;
+            cursor: pointer;
+        }
+
+        .estilo_btn_despesa {
+            padding: 10px;
+        }
+
+        #div-teste1 {
+            padding: 100px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+            color: green;
+            border-radius: 5px;
+        }
+
+        #div-teste2 {
+            padding: 100px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            color: red;
+            border-radius: 100px;
+        }
+
+        #div-teste0 {
+            padding: 30px 0 0 0;
+        }
+    </style>
+
+
+    <title>Menu Guia</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <center>
+                <li id="teste1" onclick="alternaAbas('teste1')" class="estilo_btn_receita">
+                    <b>teste1</b>
+                </li>     
+                <li id="teste2" onclick="alternaAbas('teste2')" class="estilo_btn_despesa">
+                    <b>teste2</b>
+                </li>
+            </center>
+        </ul>
+
+        <center>
+            <div id="div-teste0">
+                <div id="div-teste1">
+                    <b>Conteúdo da guia TESTE1...</b>
+                </div>
+                <div id="div-teste2">
+                    <b>Conteúdo da guia TESTE2...</b>
+                </div>
+            </div>
+        </center>
+    </div>
+
+
+    <script>
+        //Função onde alterna as cores da bortada quando clicado no CSS e javascript
+        function alternaAbas(id) {
+
+            //Pega o id da tag <li>
+            console.log(id);
+
+            //verifica qual a ID esta sendo clicado
+            if (id == 'teste1') {
+
+                //atribui a cor azul na borda abaixo da palavra teste1
+                var cor = 'green';
+
+                //retirar a cor da borda abaixo do teste2 , atribuindo TRANSPARENTE
+                document.getElementById('teste2').style.borderBottom = 'transparent';
+                document.getElementById('teste2').style.backgroundColor = 'transparent';
+                document.getElementById('div-teste2').style.display = 'none';
+                document.getElementById('div-teste1').style.display = 'block';
+            } else if (id == 'teste2') {
+
+                //atribui a cor amarelo na borda abaixo da palavra teste2
+                var cor = 'red';
+
+                //retirar a cor da borda abaixo do teste1 , atribuindo TRANSPARENTE
+                document.getElementById('teste1').style.borderBottom = 'transparent';
+                document.getElementById('teste1').style.backgroundColor = 'transparent';
+                document.getElementById('div-teste2').style.display = 'block';
+                document.getElementById('div-teste1').style.display = 'none';
+            }
+
+            //atribui a cor conforme foi atribuido na variavel cor 
+            document.getElementById(id).style.borderBottom = '3px solid ' + cor;
+            document.getElementById(id).style.backgroundColor = 'transparent';
+            document.getElementById(id).style.borderTopLeftRadius = '10px 10px';
+            document.getElementById(id).style.borderTopRightRadius = '10px 10px';
+
+
+        }
+
+        window.addEventListener("load", function () {
+            alternaAbas('teste1');
+            document.getElementById('div-teste2').style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>
